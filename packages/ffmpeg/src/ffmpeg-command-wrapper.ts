@@ -16,6 +16,8 @@ export interface FFmpegCommandWrapperOptions {
   tmpDirectory: string
   threads: number
 
+  crf: number
+
   logger: SimpleLogger
   lTags?: { tags: string[] }
 
@@ -34,6 +36,8 @@ export class FFmpegCommandWrapper {
   private readonly tmpDirectory: string
   private readonly threads: number
 
+  private readonly crf: number
+
   private readonly logger: SimpleLogger
   private readonly lTags: { tags: string[] }
 
@@ -49,6 +53,7 @@ export class FFmpegCommandWrapper {
     this.niceness = options.niceness
     this.tmpDirectory = options.tmpDirectory
     this.threads = options.threads
+    this.crf = options.crf
     this.logger = options.logger
     this.lTags = options.lTags || { tags: [] }
 
@@ -94,6 +99,10 @@ export class FFmpegCommandWrapper {
     if (this.threads > 0) {
       // If we don't set any threads ffmpeg will chose automatically
       this.command.outputOption('-threads ' + this.threads)
+    }
+
+    if (this.crf) {
+      this.command.outputOption('-crf ' + this.crf)
     }
 
     return this.command

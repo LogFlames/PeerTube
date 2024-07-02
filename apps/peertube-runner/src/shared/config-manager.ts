@@ -17,6 +17,7 @@ type Config = {
   ffmpeg: {
     threads: number
     nice: number
+    crf: number
   }
 
   registeredInstances: {
@@ -43,7 +44,8 @@ export class ConfigManager {
     },
     ffmpeg: {
       threads: 2,
-      nice: 20
+      nice: 20,
+      crf: 21,
     },
     transcription: {
       engine: 'whisper-ctranslate2',

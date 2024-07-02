@@ -95,6 +95,7 @@ function getCommonFFmpegOptions () {
   return {
     niceness: config.ffmpeg.nice,
     threads: config.ffmpeg.threads,
+    crf: config.ffmpeg.crf,
     tmpDirectory: ConfigManager.Instance.getTranscodingDirectory(),
     profile: 'default',
     availableEncoders: {

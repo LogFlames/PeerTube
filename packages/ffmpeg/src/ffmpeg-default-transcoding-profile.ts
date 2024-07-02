@@ -25,6 +25,37 @@ const defaultX264VODOptionsBuilder: EncoderOptionsBuilder = (options: EncoderOpt
   }
 }
 
+const defaultAV1VODOptionsBuilder: EncoderOptionsBuilder = (options: EncoderOptionsBuilderParams) => {
+  const { fps, inputRatio, inputBitrate, resolution } = options
+
+  const targetBitrate = getTargetBitrate({ inputBitrate, ratio: inputRatio, fps, resolution })
+
+  return {
+    outputOptions: [
+      ...getCommonOutputOptions(targetBitrate),
+
+      `-minrate:v ${targetBitrate / 2}`,
+      `-b:v ${targetBitrate}`,
+      `-r ${fps}`
+    ]
+  }
+}
+
+const defaultX265VODOptionsBuilder: EncoderOptionsBuilder = (options: EncoderOptionsBuilderParams) => {
+  const { fps, inputRatio, inputBitrate, resolution } = options
+
+  const targetBitrate = getTargetBitrate({ inputBitrate, ratio: inputRatio, fps, resolution })
+
+  return {
+    outputOptions: [
+      ...getCommonOutputOptions(targetBitrate),
+
+      `-x265-params "frame-threads=8:rc-lookahead=20"`,
+      `-r ${fps}`
+    ]
+  }
+}
+
 const defaultX264LiveOptionsBuilder: EncoderOptionsBuilder = (options: EncoderOptionsBuilderParams) => {
   const { streamNum, fps, inputBitrate, inputRatio, resolution } = options
 
@@ -74,6 +105,12 @@ export function getDefaultAvailableEncoders () {
       libx264: {
         default: defaultX264VODOptionsBuilder
       },
+      libx265: {
+        default: defaultX265VODOptionsBuilder
+      },
+      "libaom-av1": {
+        default: defaultAV1VODOptionsBuilder
+      },
       aac: {
         default: defaultAACOptionsBuilder
       },
@@ -95,7 +132,7 @@ export function getDefaultAvailableEncoders () {
 export function getDefaultEncodersToTry () {
   return {
     vod: {
-      video: [ 'libx264' ],
+      video: [ 'libx265' ],
       audio: [ 'libfdk_aac', 'aac' ]
     },
 

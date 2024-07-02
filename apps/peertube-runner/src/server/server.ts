@@ -114,7 +114,9 @@ export class RunnerServer {
       auth: {
         runnerToken: server.runnerToken
       },
-      transports: [ 'websocket' ]
+      transports: [ 'websocket' ],
+      ca: "/var/www/peertube/cert.pem",
+      rejectUnauthorized: false
     })
 
     socket.on('connect_error', err => logger.warn({ err }, `Cannot connect to ${url} socket`))
