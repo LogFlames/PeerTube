@@ -5,39 +5,39 @@ type BitPerPixel = { [ id in VideoResolutionType ]: number }
 // https://bitmovin.com/video-bitrate-streaming-hls-dash/
 
 const minLimitBitPerPixel: BitPerPixel = {
-  [VideoResolution.H_NOVIDEO]: 0,
-  [VideoResolution.H_144P]: 0.02,
-  [VideoResolution.H_240P]: 0.02,
-  [VideoResolution.H_360P]: 0.02,
-  [VideoResolution.H_480P]: 0.02,
-  [VideoResolution.H_720P]: 0.02,
-  [VideoResolution.H_1080P]: 0.02,
-  [VideoResolution.H_1440P]: 0.02,
-  [VideoResolution.H_4K]: 0.02
+  [VideoResolution.H_NOVIDEO]: 0*2.3148147,
+  [VideoResolution.H_144P]: 0.02*2.3148147,
+  [VideoResolution.H_240P]: 0.02*2.3148147,
+  [VideoResolution.H_360P]: 0.02*2.3148147,
+  [VideoResolution.H_480P]: 0.02*2.3148147,
+  [VideoResolution.H_720P]: 0.02*2.3148147,
+  [VideoResolution.H_1080P]: 0.02*2.3148147,
+  [VideoResolution.H_1440P]: 0.02*2.3148147,
+  [VideoResolution.H_4K]: 0.02*2.3148147
 }
 
 const averageBitPerPixel: BitPerPixel = {
-  [VideoResolution.H_NOVIDEO]: 0,
-  [VideoResolution.H_144P]: 0.19,
-  [VideoResolution.H_240P]: 0.17,
-  [VideoResolution.H_360P]: 0.15,
-  [VideoResolution.H_480P]: 0.12,
-  [VideoResolution.H_720P]: 0.11,
-  [VideoResolution.H_1080P]: 0.10,
-  [VideoResolution.H_1440P]: 0.09,
-  [VideoResolution.H_4K]: 0.08
+  [VideoResolution.H_NOVIDEO]: 0*2.3148147,
+  [VideoResolution.H_144P]: 0.19*2.3148147,
+  [VideoResolution.H_240P]: 0.17*2.3148147,
+  [VideoResolution.H_360P]: 0.15*2.3148147,
+  [VideoResolution.H_480P]: 0.12*2.3148147,
+  [VideoResolution.H_720P]: 0.11*2.3148147,
+  [VideoResolution.H_1080P]: 0.10*2.3148147,
+  [VideoResolution.H_1440P]: 0.09*2.3148147,
+  [VideoResolution.H_4K]: 0.08*2.3148147
 }
 
 const maxBitPerPixel: BitPerPixel = {
-  [VideoResolution.H_NOVIDEO]: 0,
-  [VideoResolution.H_144P]: 0.32,
-  [VideoResolution.H_240P]: 0.29,
-  [VideoResolution.H_360P]: 0.26,
-  [VideoResolution.H_480P]: 0.22,
-  [VideoResolution.H_720P]: 0.19,
-  [VideoResolution.H_1080P]: 0.17,
-  [VideoResolution.H_1440P]: 0.16,
-  [VideoResolution.H_4K]: 0.14
+  [VideoResolution.H_NOVIDEO]: 0*2.3148147,
+  [VideoResolution.H_144P]: 0.32*2.3148147,
+  [VideoResolution.H_240P]: 0.29*2.3148147,
+  [VideoResolution.H_360P]: 0.26*2.3148147,
+  [VideoResolution.H_480P]: 0.22*2.3148147,
+  [VideoResolution.H_720P]: 0.19*2.3148147,
+  [VideoResolution.H_1080P]: 0.17*2.3148147,
+  [VideoResolution.H_1440P]: 0.16*2.3148147,
+  [VideoResolution.H_4K]: 0.14*2.3148147
 }
 
 function getAverageTheoreticalBitrate (options: {

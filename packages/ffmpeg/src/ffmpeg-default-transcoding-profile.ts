@@ -50,7 +50,7 @@ const defaultX265VODOptionsBuilder: EncoderOptionsBuilder = (options: EncoderOpt
     outputOptions: [
       ...getCommonOutputOptions(targetBitrate),
 
-      `-x265-params "frame-threads=8:rc-lookahead=20"`,
+      `-x265-params "frame-threads=16:rc-lookahead=20"`,
       `-r ${fps}`
     ]
   }

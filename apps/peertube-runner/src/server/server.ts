@@ -115,7 +115,6 @@ export class RunnerServer {
         runnerToken: server.runnerToken
       },
       transports: [ 'websocket' ],
-      ca: "/var/www/peertube/cert.pem",
       rejectUnauthorized: false
     })
 
