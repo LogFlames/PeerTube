@@ -172,7 +172,7 @@ export class FFmpegVOD {
       scaleFilterValue: this.getMergeAudioScaleFilterValue()
     })
 
-    command.outputOption('-preset:v veryfast')
+    command.outputOption('-preset:v medium')
 
     command.input(options.audioPath)
       .outputOption('-tune stillimage')
