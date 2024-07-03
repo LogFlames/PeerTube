@@ -133,12 +133,12 @@ export function getDefaultEncodersToTry () {
   return {
     vod: {
       video: [ 'libx265' ],
-      audio: [ 'libfdk_aac', 'aac' ]
+      audio: [ 'aac' ]
     },
 
     live: {
       video: [ 'libx264' ],
-      audio: [ 'libfdk_aac', 'aac' ]
+      audio: [ 'aac' ]
     }
   }
 }

@@ -77,7 +77,7 @@ function getMaxAudioBitrate (type: 'aac' | 'mp3' | string, bitrate: number) {
         return maxKBitrate
 
       default:
-        return -1 // we interpret it as a signal to copy the audio stream as is
+        return (bitrate / 1000) // we interpret it as a signal to copy the audio stream as is
     }
   }
 
