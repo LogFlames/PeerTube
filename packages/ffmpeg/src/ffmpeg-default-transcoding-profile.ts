@@ -209,7 +209,7 @@ function capBitrate (inputBitrate: number, targetBitrate: number) {
 
 function getCommonOutputOptions (targetBitrate: number, streamNum?: number) {
   return [
-    `-preset veryfast`,
+    `-preset medium`,
     `${buildStreamSuffix('-maxrate:v', streamNum)} ${targetBitrate}`,
     `${buildStreamSuffix('-bufsize:v', streamNum)} ${targetBitrate * 2}`,
 
