@@ -226,7 +226,7 @@ export class FFmpegVOD {
     return command.outputOption('-hls_time 4')
                   .outputOption('-hls_list_size 0')
                   .outputOption('-hls_playlist_type vod')
-                  .outputOption('-hls_segment_filename ' + outputPath)
+                  .outputOption('-hls_segment_filename "' + outputPath + '"')
                   .outputOption('-hls_segment_type fmp4')
                   .outputOption('-f hls')
                   .outputOption('-hls_flags single_file')
