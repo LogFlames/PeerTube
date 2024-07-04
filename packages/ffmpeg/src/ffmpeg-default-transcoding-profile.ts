@@ -132,7 +132,7 @@ export function getDefaultAvailableEncoders () {
 export function getDefaultEncodersToTry () {
   return {
     vod: {
-      video: [ 'libx265' ],
+      video: [ 'libx264' ],
       audio: [ 'aac' ]
     },
 
