@@ -3,7 +3,7 @@ import { VideoResolution } from '@peertube/peertube-models'
 import { MutexInterface } from 'async-mutex'
 import { FfmpegCommand } from 'fluent-ffmpeg'
 import { readFile, writeFile } from 'fs/promises'
-import { dirname } from 'path'
+import { dirname, join } from 'path'
 import { FFmpegCommandWrapper, FFmpegCommandWrapperOptions } from './ffmpeg-command-wrapper.js'
 import { ffprobePromise, getVideoStreamDimensionsInfo } from './ffprobe.js'
 import { presetCopy, presetOnlyAudio, presetVOD } from './shared/presets.js'
@@ -248,6 +248,6 @@ export class FFmpegVOD {
   }
 
   private getHLSVideoPath (options: HLSTranscodeOptions | HLSFromTSTranscodeOptions) {
-    return `${dirname(options.outputPath)}/${options.hlsPlaylist.videoFilename}`
+    return join(dirname(options.outputPath), options.hlsPlaylist.videoFilename);
   }
 }
